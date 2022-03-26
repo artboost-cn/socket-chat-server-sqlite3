@@ -8,7 +8,7 @@ Socket-Chat的服务器，基于express+mysql+socket.io实现，目前实现了�
 
 ## 在线demo
 
-http://114.132.235.129:666/
+http://www.codeman.ink:666/
 
 ## 安装步骤
 
