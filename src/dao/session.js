@@ -120,7 +120,7 @@ const getSessionList = async (userId, lastTime) => {
 
   list.find(item => {
     if (item.dataValues.type == 2) {
-      item.dataValues.cover = '	http://114.132.235.129:3000/1648237606503.png'
+      item.dataValues.cover = 'http://114.132.235.129:3000/1648365630990.png'
       item.dataValues.sessionName = 'Socket-Chat系统通知'
       return true
     }
