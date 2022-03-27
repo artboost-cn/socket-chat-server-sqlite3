@@ -13,9 +13,6 @@ const User = sequelize.define('users', {
   userName: {
     type: DB.STRING,
     allowNull: false, //不允许为null
-    // validate:{
-    //   isEmail: true,   //类型检测,是否是邮箱格式
-    // }
   },
   //密码
   password: {
@@ -30,9 +27,10 @@ const User = sequelize.define('users', {
   email: {
     type: DB.STRING,
     allowNull: true,
-    validate: {
-      isEmail: true
-    }
+    // 这里邮箱规则校验比较严格, 前端校验就好了
+    // validate: {
+    //   isEmail: true
+    // }
   },
   createdAt: {
     type: DB.STRING,
