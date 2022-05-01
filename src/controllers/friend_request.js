@@ -78,9 +78,10 @@ const addRequest = async (req, res, next) => {
     process.io.to(socketUser.socketId).emit('message', {
       msgType: 'friendRequest',
       userInfo: {
-        userId: user.id,
+        id: user.id,
         userName: user.userName,
-        avatar: user.avatar
+        avatar: user.avatar,
+        email: user.email,
       },
       content: query.content
     })
