@@ -16,7 +16,7 @@ const dao_friend = require('../dao/friend')
 const control_session = require('../controllers/session')
 const callback = require('./callback')
 
-function getSocket(server) {
+function getSocket (server) {
   const io = socketio(server, {
     cors: true,
     maxHttpBufferSize: 3 * 1024 * 1024,
@@ -98,9 +98,9 @@ function getSocket(server) {
       }
 
       let content = null;
-      // data.type  0:文字    1:图片     2:文件      3: 自定义表情
+      // data.type  0:文字    1:图片     2:文件      3: 自定义表情    4: 通知   5: 视频邀请
       // 文字聊天 或 自定义表情
-      if (data.type == 0 || data.type == 3) {
+      if (data.type == 0 || data.type == 3 || data.type == 5) {
         content = data.content
       } else if (data.type == 1 || data.type == 2) {
         // 存储文件
@@ -203,6 +203,12 @@ function getSocket(server) {
     // 调用callback中的方法
     socket.on('request', async (data) => {
       callback[data.function] && callback[data.function](data.params)
+    })
+
+    socket.on('webRTC', async (data) => {
+      const receiver = await getUserById(data.receiverId)
+      if (!receiver) return
+      io.to(receiver.socketId).emit('webRTC', data)
     })
 
     // 断开连接
