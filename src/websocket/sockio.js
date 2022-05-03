@@ -88,6 +88,7 @@ function getSocket (server) {
       let isFriend = await dao_friend.getIsFriend(user.id, data.receiverId)
       if (!isFriend) {
         socket.emit('message', {
+          sessionId,
           msgType: 'chat',
           status: 'fail',
           uuid: data.uuid,

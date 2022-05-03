@@ -85,7 +85,7 @@ const addFriend = async (req, res, next) => {
     content: friendReq.content,
     time: timestamps,
     sessionId,
-    talkerId: friendReq.friendId,
+    talkerId: friendReq.userId,
     type: 0,
   })
 }
