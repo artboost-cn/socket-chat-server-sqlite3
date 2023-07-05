@@ -114,7 +114,7 @@ function getSocket (server) {
         // 写入文件
         fs.writeFileSync(dir, data.content)
 
-        let src = 'http://localhost:3000/' + timestamps + ext
+        let src = '/download/' + timestamps + ext
         await new Promise((resolve, reject) => {
           // 判断是否是图片
           if (data.type == 1) {

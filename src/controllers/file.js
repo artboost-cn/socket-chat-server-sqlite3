@@ -71,7 +71,7 @@ const uploadFile = async (req, res, next) => {
     if (err) console.log(err);
 
     // 文件写入成功
-    let src = 'http://localhost:3000/' + timestamps + ext
+    let src = '/download/' + timestamps + ext
 
     if (req.body.emoticon && fileType === 'img') {
       new Promise((resolve, reject) => {
